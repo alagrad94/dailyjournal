@@ -1,0 +1,51 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    font-weight: bold;
+    margin: 4px;
+    margin-bottom: 1px;
+}
+
+button {
+    border: 1.5px solid black;
+}
+
+.formElement {
+    border: 1.5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 4px;
+    width: 500px;
+}
+
+#journalDate {
+    border: 1.5px solid black;
+    width: 100px;
+    margin: 4px;
+    margin-top: 1px;
+}
+
+#moodForTheDay {
+    border: 1.5px solid black;
+    width: 65px;
+    margin: 4px;
+    margin-top: 1px;
+}
+
+#conceptsCovered {
+   margin: 4px;
+   width: 300px;
+   margin-top: 1px;
+}
+
+#journalEntry {
+    margin: 4px;
+    width: 300px;
+    margin-top: 1px;
+}
+
