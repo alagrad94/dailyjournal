@@ -6,9 +6,9 @@ const entryComponent = {
     let jEEntry = entry.entry;
     let jEMood = entry.mood;
     
-    let br = document.createElement('br');
-    let br2 = document.createElement('br');
-    let br3 = document.createElement('br');
+    let br = document.createElement("br");
+    let br2 = document.createElement("br");
+    let br3 = document.createElement("br");
 
     let entryDiv = document.createElement("div");
     let entryDivText1 = document.createTextNode(`Date: ${jEDate}`)
