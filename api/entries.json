@@ -1,10 +1,32 @@
 {
-    "entries": [
-        {
-        "date": "07/24/2018",
-        "concept": "Array methods",
-        "entry": "We learned about 4 different array methods today. forEach made sense, but the others still confuse me.",
-        "mood": "Ok"
-        }
-    ]
+  "entries": [
+    {
+      "date": "2018-12-17",
+      "concept": "aaaaaa",
+      "entry": "aaaaaaa",
+      "mood": "Happy",
+      "id": 1
+    },
+    {
+      "date": "2018-12-17",
+      "concept": "Form Validation",
+      "entry": "It's cool stuff",
+      "mood": "Happy",
+      "id": 2
+    },
+    {
+      "date": "2018-12-17",
+      "concept": "aaa",
+      "entry": "Shit",
+      "mood": "Happy",
+      "id": 3
+    },
+    {
+      "date": "2018-12-17",
+      "concept": "aaaaa",
+      "entry": "fuck",
+      "mood": "Happy",
+      "id": 4
+    }
+  ]
 }

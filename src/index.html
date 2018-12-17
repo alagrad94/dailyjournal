@@ -5,44 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/journal.css">
-    <title>Document</title>
+    <title>Daily Journal</title>
 </head>
 
 <body>
     <h1>Daily Journal</h1>
 
-    <form action="">
-        <section class="formElement">
-            <label for="journalDate">Date of entry</label>
-            <input type="date" name="journalDate" id="journalDate">
-        </section>
-        <section class="formElement">
-            <label for="conceptsCovered">Concepts Covered</label>
-            <textarea name="conceptsCovered" id="conceptsCovered" cols="60" rows="1"></textarea>
-        </section>
-        <section class="formElement">
-            <label for="journalEntry">Journal Entry</label>
-            <textarea name="journalEntry" id="journalEntry" cols="60" rows="2"></textarea>
-        </section>
-        <section class="formElement">    
-            <label for="moodForTheDay">Mood for the day</label>
-        <select name="moodForTheDay" id="moodForTheDay">
-            <option value="happy">Happy</option>
-            <option value="sad">Sad</option>
-            <option value="bored">Bored</option>
-            <option value="anxious">Anxious</option>
-        </select>
-        </section>
-    </form>
+    <form name = "entryForm" id = "entryForm"></form>
 
-    <button type="button">Record Journal Entry</button>
+    <button type="button" id = "recordEntryButton">Record Journal Entry</button>
 
     <article id="entryLog">
-        
+
     </article>
 
-    
+
     <script src = "scripts/data.js"></script>
+    <script src = "scripts/eventListeners.js"></script>
+    <script src = "scripts/formValidation.js"></script>
+    <script src = "scripts/entriesForm.js"></script>
     <script src = "scripts/entryComponent.js"></script>
     <script src = "scripts/entriesDOM.js"></script>
     <script src = "scripts/journal.js"></script>
