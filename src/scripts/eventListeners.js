@@ -13,7 +13,7 @@ const eventListeners = {
             "entry": `${entryText}`,
             "mood": `${entryMood}`
         }
-        console.log(journalEntryObject)
+        // console.log(journalEntryObject)
 
         if (formValidation.validateForm()) {
             API.postJournalEntry(journalEntryObject);

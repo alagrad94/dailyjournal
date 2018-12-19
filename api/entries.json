@@ -15,18 +15,11 @@
       "id": 2
     },
     {
-      "date": "2018-12-17",
-      "concept": "aaa",
-      "entry": "Shit",
+      "date": "2018-12-19",
+      "concept": "a",
+      "entry": "yes",
       "mood": "Happy",
       "id": 3
-    },
-    {
-      "date": "2018-12-17",
-      "concept": "aaaaa",
-      "entry": "fuck",
-      "mood": "Happy",
-      "id": 4
     }
   ]
 }

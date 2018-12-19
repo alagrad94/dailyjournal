@@ -40,7 +40,7 @@ const formValidation = {
 
     validateEntry () {
         let entryValidation = document.forms["entryForm"]["journalEntry"].value;
-        let pottyMouthWords = new RegExp(`[/\bfuck\b/, /\bshit\b/, /\bpiss\b/, /\bhell\b/, /\bdamn\b/]`, "i");
+        let pottyMouthWords = new RegExp([/\b(\w*shit\w*)\b|\b(\w*fuck\w*)\b|\b(\w*piss\w*)\b|(hell)|\b(\w*damn\w*)\b/], "i");
 
             console.log(entryValidation)
             console.log(pottyMouthWords)
