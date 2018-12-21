@@ -47,35 +47,51 @@ const journalEntryForm = {
             journalEntryField.appendChild(journalEntryLabel);
             journalEntryField.appendChild(journalEntryInput);
 
-            let moodField = document.createElement("section");
+            let moodField = document.createElement("fieldset");
             moodField.classList.add("formElement");
-            let moodFieldLabel = document.createElement("label");
-            moodFieldLabel.setAttribute("for", "moodForTheDay");
-            moodFieldLabel.textContent = "Mood";
-            let moodSelect = document.createElement("select");
-            moodSelect.setAttribute("id", "moodForTheDay");
-            moodSelect.setAttribute("required", "");
-            moodSelect.setAttribute("name", "moodForTheDay");
-            let moodOption1 = document.createElement("option");
+            moodField.setAttribute("id", "moodForTheDay")
+            let moodFieldLegend = document.createElement("legend");
+            moodFieldLegend.textContent = "Mood for the Day";
+            let moodDiv = document.createElement("div");
+            moodDiv.setAttribute("id", "moodDiv");
+            // moodDiv.setAttribute("value", "");
+
+            let moodOption1 = document.createElement("input");
             moodOption1.setAttribute("value", "Happy");
-            moodOption1.textContent = "Happy";
-            let moodOption2 = document.createElement("option");
+            moodOption1.setAttribute("name", "mood");
+            moodOption1.setAttribute("id", "moodChoice1");
+            moodOption1.setAttribute("type", "radio");
+            let moodLabel1 = document.createElement("label");
+            moodLabel1.setAttribute("for", "moodChoice1");
+            moodLabel1.textContent = "Happy";
+
+            let moodOption2 = document.createElement("input");
             moodOption2.setAttribute("value", "Sad");
-            moodOption2.textContent = "Sad";
-            let moodOption3 = document.createElement("option");
-            moodOption3.setAttribute("value", "Bored");
-            moodOption3.textContent = "Bored";
-            let moodOption4 = document.createElement("option");
-            moodOption4.setAttribute("value", "Anxious");
-            moodOption4.textContent = "Anxious";
+            moodOption2.setAttribute("name", "mood");
+            moodOption2.setAttribute("id", "moodChoice2");
+            moodOption2.setAttribute("type", "radio");
+            let moodLabel2 = document.createElement("label");
+            moodLabel2.setAttribute("for", "moodChoice2");
+            moodLabel2.textContent = "Sad";
+
+            let moodOption3 = document.createElement("input");
+            moodOption3.setAttribute("value", "Ok");
+            moodOption3.setAttribute("name", "mood");
+            moodOption3.setAttribute("id", "moodChoice3");
+            moodOption3.setAttribute("type", "radio");
+            let moodLabel3 = document.createElement("label");
+            moodLabel3.setAttribute("for", "moodChoice3");
+            moodLabel3.textContent = "Ok";
 
 
-            moodField.appendChild(moodFieldLabel);
-            moodSelect.appendChild(moodOption1);
-            moodSelect.appendChild(moodOption2);
-            moodSelect.appendChild(moodOption3);
-            moodSelect.appendChild(moodOption4);
-            moodField.appendChild(moodSelect);
+            moodField.appendChild(moodFieldLegend);
+            moodDiv.appendChild(moodOption1);
+            moodDiv.appendChild(moodLabel1);
+            moodDiv.appendChild(moodOption2);
+            moodDiv.appendChild(moodLabel2);
+            moodDiv.appendChild(moodOption3);
+            moodDiv.appendChild(moodLabel3);
+            moodField.appendChild(moodDiv);
 
 
             entryForm.appendChild(dateField);
@@ -85,6 +101,27 @@ const journalEntryForm = {
 
             let journalEntryButton = document.getElementById("recordEntryButton");
             journalEntryButton.addEventListener("click", eventListeners.handleRecordEntryButton);
+
+            let moodRadioButtons = document.getElementsByName("mood");
+            moodRadioButtons.forEach(radioButton => {
+                radioButton.addEventListener("click", event => {
+                    let entryLog = document.getElementById("entryLog");
+                    while (entryLog.firstChild) {
+                        entryLog.removeChild(entryLog.firstChild);
+                    }
+
+                    let mood = event.target.value
+                    API.getJournalEntries().then(parsedEntries => {
+
+                        const filteredEntries = parsedEntries.filter(entryItem => entryItem.mood === mood)
+                        filteredEntries.forEach(entry => {
+
+                            let entryHTML = entryComponent.makeJournalEntryComponent(entry);
+                            renderEntries.renderJournalEntries(entryHTML);
+                        })
+                    });
+                })
+            });
         }
 }
 

@@ -2,9 +2,9 @@
   "entries": [
     {
       "date": "2018-12-17",
-      "concept": "aaaaaa",
-      "entry": "aaaaaaa",
-      "mood": "Happy",
+      "concept": "Radio Buttons",
+      "entry": "Radio buttons rock",
+      "mood": "Ok",
       "id": 1
     },
     {
@@ -16,10 +16,17 @@
     },
     {
       "date": "2018-12-19",
-      "concept": "a",
-      "entry": "yes",
-      "mood": "Happy",
+      "concept": "Array Methods",
+      "entry": "Make my head hurt",
+      "mood": "Sad",
       "id": 3
+    },
+    {
+      "date": "2018-12-21",
+      "concept": "test",
+      "entry": "test",
+      "mood": "Happy",
+      "id": 4
     }
   ]
 }

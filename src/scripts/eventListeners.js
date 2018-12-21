@@ -5,7 +5,8 @@ const eventListeners = {
         let entryDate = document.getElementById("journalDate").value;
         let entryConcepts = document.getElementById("conceptsCovered").value;
         let entryText = document.getElementById("journalEntry").value;
-        let entryMood = document.getElementById("moodForTheDay").value;
+        let entryMood = document.querySelector("[name = 'mood']").value;
+
 
         let journalEntryObject = {
             "date": `${entryDate}`,
@@ -13,7 +14,7 @@ const eventListeners = {
             "entry": `${entryText}`,
             "mood": `${entryMood}`
         }
-        // console.log(journalEntryObject)
+        console.log(journalEntryObject)
 
         if (formValidation.validateForm()) {
             API.postJournalEntry(journalEntryObject);
