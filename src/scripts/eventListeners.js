@@ -2,10 +2,10 @@ const eventListeners = {
 
     handleRecordEntryButton () {
 
-        let entryDate = document.getElementById("journalDate").value;
-        let entryConcepts = document.getElementById("conceptsCovered").value;
-        let entryText = document.getElementById("journalEntry").value;
-        let entryMood = document.querySelector("[name = 'mood']").value;
+        let entryDate = $("#journalDate").val();
+        let entryConcepts = $("#conceptsCovered").val();
+        let entryText = $("#journalEntry").val();
+        let entryMood = $("[name = 'mood']").val();
 
         let journalEntryObject = {
             "date": `${entryDate}`,
@@ -25,12 +25,10 @@ const eventListeners = {
 
     filterOnRadioButton () {
 
-        let entryLog = document.getElementById("entryLog");
-        while (entryLog.firstChild) {
-            entryLog.removeChild(entryLog.firstChild);
-        }
+        let entryLog = $("#entryLog");
+        entryLog.empty();
 
-        let mood = event.target.value
+        let mood = event.target.value;
         API.getJournalEntries().then(parsedEntries => {
 
             const filteredEntries = parsedEntries.filter(entryItem => entryItem.mood === mood)

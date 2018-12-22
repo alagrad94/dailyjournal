@@ -3,7 +3,7 @@ const journalEntryForm = {
         createEntryForm () {
 
 
-            let entryForm = document.getElementById("entryForm")
+            let entryForm = $("#entryForm")
 
             console.log(entryForm)
             let dateField = document.createElement("section");
@@ -63,8 +63,10 @@ const journalEntryForm = {
             moodOption1.setAttribute("name", "mood");
             moodOption1.setAttribute("id", "moodChoice1");
             moodOption1.setAttribute("type", "radio");
+            moodOption1.setAttribute("checked", "")
             let moodLabel1 = document.createElement("label");
             moodLabel1.setAttribute("for", "moodChoice1");
+
             moodLabel1.textContent = "Happy";
 
             let moodOption2 = document.createElement("input");
@@ -94,18 +96,16 @@ const journalEntryForm = {
             moodDiv.appendChild(moodLabel3);
             moodField.appendChild(moodDiv);
 
-            entryForm.appendChild(dateField);
-            entryForm.appendChild(conceptsField);
-            entryForm.appendChild(journalEntryField);
-            entryForm.appendChild(moodField);
+            entryForm.append(dateField);
+            entryForm.append(conceptsField);
+            entryForm.append(journalEntryField);
+            entryForm.append(moodField);
 
-            let journalEntryButton = document.getElementById("recordEntryButton");
+            let journalEntryButton = $("#recordEntryButton");
             journalEntryButton.click(eventListeners.handleRecordEntryButton);
 
-            let moodRadioButtons = document.getElementsByName("mood");
-            moodRadioButtons.forEach(radioButton => {
-                radioButton.addEventListener("click", eventListeners.filterOnRadioButton);
-            });
+            let moodRadioButtons = $("[name = 'mood']");
+            moodRadioButtons.click(eventListeners.filterOnRadioButton);
         }
 }
 

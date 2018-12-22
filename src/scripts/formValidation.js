@@ -13,7 +13,7 @@ const formValidation = {
     },
 
     validateDate () {
-        let dateValidation = document.forms["entryForm"]["journalDate"].value;
+        let dateValidation = document.forms["entryForm"]["journalDate"].val();
 
         if (dateValidation === "") {
             alert("Date field must be filled out");
@@ -24,7 +24,7 @@ const formValidation = {
     },
 
     validateConcepts () {
-        let conceptsValidation = document.forms["entryForm"]["conceptsCovered"].value;
+        let conceptsValidation = document.forms["entryForm"]["conceptsCovered"].val();
         let conceptsLength = conceptsValidation.length;
 
         if (conceptsValidation === "") {
@@ -39,7 +39,7 @@ const formValidation = {
     },
 
     validateEntry () {
-        let entryValidation = document.forms["entryForm"]["journalEntry"].value;
+        let entryValidation = document.forms["entryForm"]["journalEntry"].val();
         let pottyMouthWords = new RegExp([/\b(\w*shit\w*)\b|\b(\w*fuck\w*)\b|\b(\w*piss\w*)\b|(hell)|\b(\w*damn\w*)\b/], "i");
 
             console.log(entryValidation)
@@ -57,7 +57,7 @@ const formValidation = {
     },
 
     validateMood () {
-        let moodValidation = document.forms["entryForm"]["moodForTheDay"].value;
+        let moodValidation = document.forms["entryForm"]["moodForTheDay"].val();
         if (moodValidation === "") {
             alert("Mood field must be filled out");
             return false;
