@@ -1,3 +1,5 @@
+import eventListeners from "./eventListeners";
+
 const journalEntryForm = {
 
         createEntryForm () {
@@ -109,3 +111,4 @@ const journalEntryForm = {
         }
 }
 
+export default journalEntryForm;

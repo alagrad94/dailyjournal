@@ -1,3 +1,8 @@
+import API from "./data";
+import entryComponent from "./entryComponent";
+import formValidation from "./formValidation";
+import renderEntries from "./entriesDOM";
+
 const eventListeners = {
 
     handleRecordEntryButton () {
@@ -40,3 +45,5 @@ const eventListeners = {
         });
     }
 }
+
+export default eventListeners;

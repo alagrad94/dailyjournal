@@ -1,4 +1,6 @@
+
 const entryComponent = {
+
     makeJournalEntryComponent (entry) {
 
     let jEDate = entry.date;
@@ -29,3 +31,5 @@ const entryComponent = {
 
     }
 };
+
+export default entryComponent;

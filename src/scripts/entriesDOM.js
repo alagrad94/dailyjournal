@@ -5,3 +5,5 @@ const renderEntries = {
 
     }
 };
+
+export default renderEntries;
