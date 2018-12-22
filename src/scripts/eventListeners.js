@@ -7,14 +7,12 @@ const eventListeners = {
         let entryText = document.getElementById("journalEntry").value;
         let entryMood = document.querySelector("[name = 'mood']").value;
 
-
         let journalEntryObject = {
             "date": `${entryDate}`,
             "concept": `${entryConcepts}`,
             "entry": `${entryText}`,
             "mood": `${entryMood}`
         }
-        console.log(journalEntryObject)
 
         if (formValidation.validateForm()) {
             API.postJournalEntry(journalEntryObject);
@@ -23,5 +21,24 @@ const eventListeners = {
         }
         location.reload(true);
 
+    },
+
+    filterOnRadioButton () {
+
+        let entryLog = document.getElementById("entryLog");
+        while (entryLog.firstChild) {
+            entryLog.removeChild(entryLog.firstChild);
+        }
+
+        let mood = event.target.value
+        API.getJournalEntries().then(parsedEntries => {
+
+            const filteredEntries = parsedEntries.filter(entryItem => entryItem.mood === mood)
+            filteredEntries.forEach(entry => {
+
+                let entryHTML = entryComponent.makeJournalEntryComponent(entry);
+                renderEntries.renderJournalEntries(entryHTML);
+            })
+        });
     }
 }

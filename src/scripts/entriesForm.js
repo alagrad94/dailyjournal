@@ -1,8 +1,11 @@
 const journalEntryForm = {
 
         createEntryForm () {
-            let entryForm = document.getElementById("entryForm");
 
+
+            let entryForm = document.getElementById("entryForm")
+
+            console.log(entryForm)
             let dateField = document.createElement("section");
             dateField.classList.add("formElement");
             let dateInput = document.createElement("input");
@@ -54,7 +57,6 @@ const journalEntryForm = {
             moodFieldLegend.textContent = "Mood for the Day";
             let moodDiv = document.createElement("div");
             moodDiv.setAttribute("id", "moodDiv");
-            // moodDiv.setAttribute("value", "");
 
             let moodOption1 = document.createElement("input");
             moodOption1.setAttribute("value", "Happy");
@@ -83,7 +85,6 @@ const journalEntryForm = {
             moodLabel3.setAttribute("for", "moodChoice3");
             moodLabel3.textContent = "Ok";
 
-
             moodField.appendChild(moodFieldLegend);
             moodDiv.appendChild(moodOption1);
             moodDiv.appendChild(moodLabel1);
@@ -93,34 +94,17 @@ const journalEntryForm = {
             moodDiv.appendChild(moodLabel3);
             moodField.appendChild(moodDiv);
 
-
             entryForm.appendChild(dateField);
             entryForm.appendChild(conceptsField);
             entryForm.appendChild(journalEntryField);
             entryForm.appendChild(moodField);
 
             let journalEntryButton = document.getElementById("recordEntryButton");
-            journalEntryButton.addEventListener("click", eventListeners.handleRecordEntryButton);
+            journalEntryButton.click(eventListeners.handleRecordEntryButton);
 
             let moodRadioButtons = document.getElementsByName("mood");
             moodRadioButtons.forEach(radioButton => {
-                radioButton.addEventListener("click", event => {
-                    let entryLog = document.getElementById("entryLog");
-                    while (entryLog.firstChild) {
-                        entryLog.removeChild(entryLog.firstChild);
-                    }
-
-                    let mood = event.target.value
-                    API.getJournalEntries().then(parsedEntries => {
-
-                        const filteredEntries = parsedEntries.filter(entryItem => entryItem.mood === mood)
-                        filteredEntries.forEach(entry => {
-
-                            let entryHTML = entryComponent.makeJournalEntryComponent(entry);
-                            renderEntries.renderJournalEntries(entryHTML);
-                        })
-                    });
-                })
+                radioButton.addEventListener("click", eventListeners.filterOnRadioButton);
             });
         }
 }
