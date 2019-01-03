@@ -7,7 +7,6 @@ const journalEntryForm = {
 
             let entryForm = $("#entryForm")
 
-            console.log(entryForm)
             let dateField = document.createElement("section");
             dateField.classList.add("formElement");
             let dateInput = document.createElement("input");
@@ -52,6 +51,33 @@ const journalEntryForm = {
             journalEntryField.appendChild(journalEntryLabel);
             journalEntryField.appendChild(journalEntryInput);
 
+            let instructorField = document.createElement("section");
+            instructorField.classList.add("formElement");
+            let instructorFieldLabel = document.createElement("label");
+            instructorFieldLabel.setAttribute("for", "instructor");
+            instructorFieldLabel.textContent = "Instructor";
+            let instructorSelect = document.createElement("select");
+            instructorSelect.setAttribute("id", "instructor");
+            instructorSelect.setAttribute("required", "");
+            instructorSelect.setAttribute("name", "instructor");
+            let instructorOption1 = document.createElement("option");
+            instructorOption1.setAttribute("value", 1);
+            instructorOption1.textContent = "Jisie David";
+            let instructorOption2 = document.createElement("option");
+            instructorOption2.setAttribute("value", 2);
+            instructorOption2.textContent = "Emily Lemmon";
+            let instructorOption3 = document.createElement("option");
+            instructorOption3.setAttribute("value", 3);
+            instructorOption3.textContent = "Leah Hoefling";
+
+
+            instructorField.appendChild(instructorFieldLabel);
+            instructorSelect.appendChild(instructorOption1);
+            instructorSelect.appendChild(instructorOption2);
+            instructorSelect.appendChild(instructorOption3);
+            instructorField.appendChild(instructorSelect);
+            entryForm.append(instructorField);
+
             let moodField = document.createElement("fieldset");
             moodField.classList.add("formElement");
             moodField.setAttribute("id", "moodForTheDay")
@@ -61,18 +87,17 @@ const journalEntryForm = {
             moodDiv.setAttribute("id", "moodDiv");
 
             let moodOption1 = document.createElement("input");
-            moodOption1.setAttribute("value", "Happy");
+            moodOption1.setAttribute("value", 2);
             moodOption1.setAttribute("name", "mood");
             moodOption1.setAttribute("id", "moodChoice1");
             moodOption1.setAttribute("type", "radio");
             moodOption1.setAttribute("checked", "")
             let moodLabel1 = document.createElement("label");
             moodLabel1.setAttribute("for", "moodChoice1");
-
             moodLabel1.textContent = "Happy";
 
             let moodOption2 = document.createElement("input");
-            moodOption2.setAttribute("value", "Sad");
+            moodOption2.setAttribute("value", 3);
             moodOption2.setAttribute("name", "mood");
             moodOption2.setAttribute("id", "moodChoice2");
             moodOption2.setAttribute("type", "radio");
@@ -81,7 +106,7 @@ const journalEntryForm = {
             moodLabel2.textContent = "Sad";
 
             let moodOption3 = document.createElement("input");
-            moodOption3.setAttribute("value", "Ok");
+            moodOption3.setAttribute("value", 1);
             moodOption3.setAttribute("name", "mood");
             moodOption3.setAttribute("id", "moodChoice3");
             moodOption3.setAttribute("type", "radio");

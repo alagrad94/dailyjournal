@@ -4,22 +4,64 @@
       "date": "2018-12-17",
       "concept": "Radio Buttons",
       "entry": "Radio buttons rock",
-      "mood": "Ok",
+      "moodId": 1,
+      "instructorId": 1,
       "id": 1
     },
     {
       "date": "2018-12-17",
       "concept": "Form Validation",
       "entry": "It's cool stuff",
-      "mood": "Happy",
+      "moodId": 2,
+      "instructorId": 1,
       "id": 2
     },
     {
       "date": "2018-12-19",
       "concept": "Array Methods",
       "entry": "Make my head hurt",
-      "mood": "Sad",
+      "moodId": 3,
+      "instructorId": 1,
       "id": 3
+    },
+    {
+      "date": "2019-01-03",
+      "concept": "Cohort 28 Demos",
+      "entry": "Very cool!",
+      "moodId": 2,
+      "instructorId": 1,
+      "id": 4
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Ok"
+    },
+    {
+      "id": 2,
+      "label": "Happy"
+    },
+    {
+      "id": 3,
+      "label": "Sad"
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "firstName": "Jisie",
+      "lastName": "David"
+    },
+    {
+      "id": 2,
+      "firstName": "Emily",
+      "lastName": "Lemmon"
+    },
+    {
+      "id": 3,
+      "firstName": "Leah",
+      "lastName": "Hoefling"
     }
   ]
 }

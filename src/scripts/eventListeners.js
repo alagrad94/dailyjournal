@@ -11,12 +11,14 @@ const eventListeners = {
         let entryConcepts = $("#conceptsCovered").val();
         let entryText = $("#journalEntry").val();
         let entryMood = $("[name = 'mood']").val();
+        let entryInstructor = $("#instructor").val();
 
         let journalEntryObject = {
             "date": `${entryDate}`,
             "concept": `${entryConcepts}`,
             "entry": `${entryText}`,
-            "mood": `${entryMood}`
+            "moodId": parseInt(entryMood),
+            "instructorId": parseInt(entryInstructor)
         }
 
         if (formValidation.validateForm()) {
@@ -33,10 +35,12 @@ const eventListeners = {
         let entryLog = $("#entryLog");
         entryLog.empty();
 
-        let mood = event.target.value;
+        let mood = event.target.value.toString();
+
         API.getJournalEntries().then(parsedEntries => {
 
-            const filteredEntries = parsedEntries.filter(entryItem => entryItem.mood === mood)
+            const filteredEntries = parsedEntries.filter(entryItem => entryItem.moodId.toString() === mood)
+
             filteredEntries.forEach(entry => {
 
                 let entryHTML = entryComponent.makeJournalEntryComponent(entry);
