@@ -5,7 +5,7 @@ const journalEntryForm = {
         createEntryForm () {
 
 
-            let entryForm = $("#entryForm")
+            let entryForm = $("#entryForm");
 
             let dateField = document.createElement("section");
             dateField.classList.add("formElement");
