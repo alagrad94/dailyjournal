@@ -2,138 +2,206 @@ import eventListeners from "./eventListeners";
 
 const journalEntryForm = {
 
-        createEntryForm () {
+    createEntryForm () {
 
 
-            let entryForm = $("#entryForm");
+        let entryForm = $("#entryForm");
 
-            let dateField = document.createElement("section");
-            dateField.classList.add("formElement");
-            let dateInput = document.createElement("input");
-            dateInput.setAttribute("id", "journalDate");
-            dateInput.setAttribute("type", "date");
-            dateInput.setAttribute("required", "");
-            dateInput.setAttribute("name", "journalDate");
-            let dateLabel = document.createElement("label")
-            dateLabel.setAttribute("for", "journalDate");
-            dateLabel.textContent = "Date of Entry";
+        let dateField = this.createDomElement({
+            elementType: "section",
+            cssClass: "formElement"
+        });
 
-            dateField.appendChild(dateLabel);
-            dateField.appendChild(dateInput);
+        dateField.appendChild(this.createDomElement({
+            elementType: "label",
+            content: "Date of Entry",
+            attributes: {
+                for: "journalDate",
+                type: "date",
+                required: "",
+                name: "journalDate"
+            }
+        }));
 
-            let conceptsField = document.createElement("section");
-            conceptsField.classList.add("formElement");
-            let conceptsInput = document.createElement("textarea");
-            conceptsInput.setAttribute("id", "conceptsCovered");
-            conceptsInput.setAttribute("cols", "60");
-            conceptsInput.setAttribute("rows", "1");
-            conceptsInput.setAttribute("required", "");
-            conceptsInput.setAttribute("name", "conceptsCovered");
-            let conceptsLabel = document.createElement("label")
-            conceptsLabel.setAttribute("for", "conceptsCovered");
-            conceptsLabel.textContent = "Concepts Covered";
+        dateField.appendChild(this.createDomElement({
+            elementType: "input",
+            attributes: {
+                id: "journalDate",
+                type: "date",
+                required: "",
+                name: "journalDate"
+            }
+        }));
 
-            conceptsField.appendChild(conceptsLabel);
-            conceptsField.appendChild(conceptsInput);
+        let conceptsField = this.createDomElement({
+            elementType: "section",
+            cssClass: "formElement"
+        });
 
-            let journalEntryField = document.createElement("section");
-            journalEntryField.classList.add("formElement");
-            let journalEntryInput = document.createElement("textarea");
-            journalEntryInput.setAttribute("id", "journalEntry");
-            journalEntryInput.setAttribute("cols", "60");
-            journalEntryInput.setAttribute("rows", "1");
-            journalEntryInput.setAttribute("required", "");
-            journalEntryInput.setAttribute("name", "journalEntry");
-            let journalEntryLabel = document.createElement("label")
-            journalEntryLabel.setAttribute("for", "journalEntry");
-            journalEntryLabel.textContent = "Entry"
+        conceptsField.appendChild(this.createDomElement({
+            elementType: "label",
+            content: "Concepts Covered",
+            attributes: {
+                for: "conceptsCovered",
+            }
+        }));
 
-            journalEntryField.appendChild(journalEntryLabel);
-            journalEntryField.appendChild(journalEntryInput);
+        conceptsField.appendChild(this.createDomElement({
+            elementType: "textarea",
+            attributes: {
+                id: "conceptsCovered",
+                cols: "60",
+                rows: "1",
+                required: "",
+                name: "conceptsCovered"
+            }
+        }));
 
-            let instructorField = document.createElement("section");
-            instructorField.classList.add("formElement");
-            let instructorFieldLabel = document.createElement("label");
-            instructorFieldLabel.setAttribute("for", "instructor");
-            instructorFieldLabel.textContent = "Instructor";
-            let instructorSelect = document.createElement("select");
-            instructorSelect.setAttribute("id", "instructor");
-            instructorSelect.setAttribute("required", "");
-            instructorSelect.setAttribute("name", "instructor");
-            let instructorOption1 = document.createElement("option");
-            instructorOption1.setAttribute("value", 1);
-            instructorOption1.textContent = "Jisie David";
-            let instructorOption2 = document.createElement("option");
-            instructorOption2.setAttribute("value", 2);
-            instructorOption2.textContent = "Emily Lemmon";
-            let instructorOption3 = document.createElement("option");
-            instructorOption3.setAttribute("value", 3);
-            instructorOption3.textContent = "Leah Hoefling";
+        let journalEntryField = this.createDomElement({
+            elementType: "section",
+            cssClass: "formElement"
+        });
 
+        journalEntryField.appendChild(this.createDomElement({
+            elementType: "label",
+            content: "Entry",
+            attributes: {
+                for: "journalEntry",
+            }
+        }));
 
-            instructorField.appendChild(instructorFieldLabel);
-            instructorSelect.appendChild(instructorOption1);
-            instructorSelect.appendChild(instructorOption2);
-            instructorSelect.appendChild(instructorOption3);
-            instructorField.appendChild(instructorSelect);
-            entryForm.append(instructorField);
+        journalEntryField.appendChild(this.createDomElement({
+            elementType: "textarea",
+            attributes: {
+                id: "journalEntry",
+                cols: "60",
+                rows: "1",
+                required: "",
+                name: "journalEntry"
+            }
+        }));
 
-            let moodField = document.createElement("fieldset");
-            moodField.classList.add("formElement");
-            moodField.setAttribute("id", "moodForTheDay")
-            let moodFieldLegend = document.createElement("legend");
-            moodFieldLegend.textContent = "Mood for the Day";
-            let moodDiv = document.createElement("div");
-            moodDiv.setAttribute("id", "moodDiv");
+        let instructorField = this.createDomElement({
+            elementType: "section",
+            cssClass: "formElement"
+            });
 
-            let moodOption1 = document.createElement("input");
-            moodOption1.setAttribute("value", 2);
-            moodOption1.setAttribute("name", "mood");
-            moodOption1.setAttribute("id", "moodChoice1");
-            moodOption1.setAttribute("type", "radio");
-            moodOption1.setAttribute("checked", "")
-            let moodLabel1 = document.createElement("label");
-            moodLabel1.setAttribute("for", "moodChoice1");
-            moodLabel1.textContent = "Happy";
+        instructorField.appendChild(this.createDomElement({
+            elementType: "label",
+            content: "Instructor",
+            attributes: {
+                for: "instructor",
+            }
+        }));
 
-            let moodOption2 = document.createElement("input");
-            moodOption2.setAttribute("value", 3);
-            moodOption2.setAttribute("name", "mood");
-            moodOption2.setAttribute("id", "moodChoice2");
-            moodOption2.setAttribute("type", "radio");
-            let moodLabel2 = document.createElement("label");
-            moodLabel2.setAttribute("for", "moodChoice2");
-            moodLabel2.textContent = "Sad";
+        let instructorSelect = this.createDomElement({
+            elementType: "select",
+            content: "Instructor",
+            attributes: {
+                id: "instructor",
+                required: "",
+                name: "instructor"
+            }
+        })
+        let options = [[1, "Jisie David"],[2, "Emily Lemmon"],[3, "Leah Hoefling"]]
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
 
-            let moodOption3 = document.createElement("input");
-            moodOption3.setAttribute("value", 1);
-            moodOption3.setAttribute("name", "mood");
-            moodOption3.setAttribute("id", "moodChoice3");
-            moodOption3.setAttribute("type", "radio");
-            let moodLabel3 = document.createElement("label");
-            moodLabel3.setAttribute("for", "moodChoice3");
-            moodLabel3.textContent = "Ok";
-
-            moodField.appendChild(moodFieldLegend);
-            moodDiv.appendChild(moodOption1);
-            moodDiv.appendChild(moodLabel1);
-            moodDiv.appendChild(moodOption2);
-            moodDiv.appendChild(moodLabel2);
-            moodDiv.appendChild(moodOption3);
-            moodDiv.appendChild(moodLabel3);
-            moodField.appendChild(moodDiv);
-
-            entryForm.append(dateField);
-            entryForm.append(conceptsField);
-            entryForm.append(journalEntryField);
-            entryForm.append(moodField);
-
-            let journalEntryButton = $("#recordEntryButton");
-            journalEntryButton.click(eventListeners.handleRecordEntryButton);
-
-            let moodRadioButtons = $("[name = 'mood']");
-            moodRadioButtons.click(eventListeners.filterOnRadioButton);
+            instructorSelect.appendChild(this.createDomElement({
+                elementType: "option",
+                content: option[1],
+                attributes: {
+                    value: option[0]
+                }
+            }))
         }
+
+        instructorField.appendChild(instructorSelect);
+
+
+        let moodField = this.createDomElement({
+            elementType: "section",
+            cssClass: "formElement",
+            attributes: {
+                id: "moodForTheDay"
+            }});
+
+        moodField.appendChild(this.createDomElement({
+            elementType: "legend",
+            content: "Mood for the Day",
+        }))
+
+        let moodDiv = this.createDomElement({
+            elementType: "div",
+            attributes: {
+                id: "moodDiv"
+            }});
+
+        let moods = [[1, "OK", "moodChoice3"],[2, "Happy", "moodChoice1"],[3, "Sad", "moodChoice2"]]
+        for (let i = 0; i < moods.length; i++) {
+            const mood = moods[i];
+
+            if (mood[0]=== 2) {
+
+                moodDiv.appendChild(this.createDomElement({
+                    elementType: "input",
+                    attributes: {
+                        value: mood[0],
+                        name: "mood",
+                        id: mood[2],
+                        type: "radio",
+                        checked: ""
+                    }
+                }))
+
+            } else {
+                moodDiv.appendChild(this.createDomElement({
+                    elementType: "input",
+                    attributes: {
+                        value: mood[0],
+                        name: "mood",
+                        id: mood[2],
+                        type: "radio"
+                    }
+                }))
+            }
+
+            moodDiv.appendChild(this.createDomElement({
+                elementType: "label",
+                content: mood[1],
+                attributes: {
+                    for: mood[2]
+                }
+            }))
+        }
+        moodField.appendChild(moodDiv);
+
+        entryForm.append(dateField);
+        entryForm.append(conceptsField);
+        entryForm.append(journalEntryField);
+        entryForm.append(moodField);
+        entryForm.append(instructorField);
+
+        let journalEntryButton = $("#recordEntryButton");
+        journalEntryButton.click(eventListeners.handleRecordEntryButton);
+
+        let moodRadioButtons = $("[name = 'mood']");
+        moodRadioButtons.click(eventListeners.filterOnRadioButton);
+    },
+
+    createDomElement({elementType, content = null, cssClass = '', attributes = {}}) {
+        const element = document.createElement(elementType);
+        element.textContent = content;
+
+        if (cssClass) {
+            element.classList.add(cssClass);
+          }
+
+        for (let key in attributes) {
+          element.setAttribute(key, attributes[key]);
+        }
+        return element;
+      }
 }
 
 export default journalEntryForm;

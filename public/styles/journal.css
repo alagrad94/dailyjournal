@@ -30,12 +30,9 @@ button {
     margin-top: 1px;
 }
 
-/* #moodForTheDay {
-    border: 1.5px solid black;
-    width: 65px;
-    margin: 4px;
-    margin-top: 1px;
-} */
+#moodForTheDay {
+   font-weight: bold;
+}
 
 #conceptsCovered {
    margin: 4px;

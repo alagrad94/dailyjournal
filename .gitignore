@@ -1,2 +1,2 @@
 .DS_store
-src/lib/node_modules
+node_modules
